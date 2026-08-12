@@ -1,0 +1,2 @@
+# Runtime dependency (drag & drop). Everything else is stdlib.
+tkinterdnd2
