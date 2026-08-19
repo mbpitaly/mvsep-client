@@ -337,6 +337,11 @@ class App:
         if HAS_DND:
             self._enable_dnd()
         root.after(120, self._drain_queue)
+        if not self.algorithms:
+            # Cache empty on launch: auto-fetch the model list in the background
+            # so the dropdown isn't stuck on "(no model list — click Refresh)".
+            self.status_var.set("Model list empty — fetching…")
+            self.refresh_models()
         self._center_window()
 
     # ---------- UI ----------
